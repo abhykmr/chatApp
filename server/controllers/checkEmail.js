@@ -17,7 +17,12 @@ const checkEmail = async (req, res) => {
       success: true,
       data: checkEmail,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({
+      message: error.message || error,
+      error: true,
+    });
+  }
 };
 
 module.exports = checkEmail;
